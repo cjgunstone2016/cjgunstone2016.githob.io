@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<title>card game init fam</title>
+	<meta name="author" content="whoi knows">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/look.css">
+</head>
+<body>
+	<header>
+		<h1>diss card game</h1>
+		<hr> 
+	</header>
+	<main>
+		<div id="card1" class="card" onclick="choose(this);"></div>
+		<div id="card2" class="card" onclick="choose(this);"></div>
+		<div id="card3" class="card" onclick="choose(this);"></div>
+		<div id="card4" class="card" onclick="choose(this);"></div>
+		<div id="card5" class="card" onclick="choose(this);"></div>
+		<br>
+		<button id="draw" onclick="deal();">Draw em cards init fam</button>
+
+	</main>
+	<footer>
+	
+	</footer>
+	<script>
+	
+		deal();
+		
+		function deal(){
+			for(i=1; i < 6;i++){
+				if(document.getElementById('card' + i).style.top != "-0.5em") {
+					var position = getRandom() * -225;
+					document.getElementById('card' + i).style.backgroundPosition = position + "px 0";
+				}
+			}
+		}
+		
+		function getRandom(){
+			var rnd = Math.floor(Math.random() * 51) + 0;
+			return rnd;
+		}
+		function choose(obj){
+			if( obj.style.top != "-0.5em" ) {
+					obj.style.top = "-0.5em";
+					obj.style.border = "2px solid blue";
+			}else{
+					obj.style.top = "initial";
+					obj.style.border = "initial";
+			}
+		
+		}
+	</script>
+</body>
+</html>
